@@ -1,0 +1,14 @@
+<?php
+/** @var \Solutioo\Base\Block\Adminhtml\UsageBeacon $block */
+if (!$block->isEnabled()) {
+    return;
+}
+?>
+<img src="<?= $block->escapeUrl($block->getBeaconUrl()) ?>"
+     width="16"
+     height="16"
+     alt="Solutioo"
+     title="Solutioo"
+     style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;"
+     loading="lazy"
+     referrerpolicy="no-referrer-when-downgrade"/>

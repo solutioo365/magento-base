@@ -1,0 +1,66 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<script>
+require(['jquery', 'domReady!'], function ($) {
+    'use strict';
+
+    function initSolutiooMenu() {
+        var menuItem = $('[class*="item-solutioo-base"]').first();
+        if (!menuItem.length) {
+            return false;
+        }
+
+        var link = menuItem.find('> a').first();
+        if (link.find('.solutioo-menu-logo').length) {
+            return true;
+        }
+
+        var logoUrl = '<?= $block->escapeJs($block->getViewFileUrl('Solutioo_Base::images/solutioo-logo.svg')) ?>';
+        var logoImg = $('<img>', {
+            src: logoUrl,
+            alt: 'Solutioo',
+            class: 'solutioo-menu-logo'
+        }).css({
+            width: '20px',
+            height: '20px',
+            filter: 'brightness(0) invert(1)',
+            display: 'inline-block',
+            'vertical-align': 'middle',
+            'margin-right': '10px'
+        });
+
+        link.prepend(logoImg);
+
+        if (!$('#solutioo-base-menu-css').length) {
+            $('head').append(
+                '<style id="solutioo-base-menu-css">' +
+                '.admin__menu [class*="item-solutioo-base"].level-0 > a::before{content:none!important;display:none!important}' +
+                '.admin__menu [class*="item-solutioo-base"].level-0 > a{padding-left:15px!important;display:flex!important;align-items:center!important}' +
+                '.admin__menu [class*="item-solutioo-base"]:hover .solutioo-menu-logo,' +
+                '.admin__menu [class*="item-solutioo-base"]._show .solutioo-menu-logo,' +
+                '.admin__menu [class*="item-solutioo-base"]._current .solutioo-menu-logo{filter:none!important}' +
+                '</style>'
+            );
+        }
+
+        menuItem.on('mouseenter', function () {
+            $(this).find('.solutioo-menu-logo').css('filter', 'none');
+        }).on('mouseleave', function () {
+            if (!$(this).hasClass('_current') && !$(this).hasClass('_show')) {
+                $(this).find('.solutioo-menu-logo').css('filter', 'brightness(0) invert(1)');
+            }
+        });
+
+        return true;
+    }
+
+    if (!initSolutiooMenu()) {
+        setTimeout(function () {
+            if (!initSolutiooMenu()) {
+                setTimeout(initSolutiooMenu, 300);
+            }
+        }, 100);
+    }
+});
+</script>

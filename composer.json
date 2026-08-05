@@ -1,0 +1,41 @@
+{
+    "name": "solutioo/module-base",
+    "description": "Solutioo Base for Magento 2 – shared admin menu, ACL root and helpers for Solutioo extensions.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Solutioo",
+            "email": "info@solutioo.de",
+            "homepage": "https://www.solutioo.de"
+        }
+    ],
+    "keywords": [
+        "magento2",
+        "magento",
+        "solutioo",
+        "magento-module",
+        "adobe-commerce",
+        "hyva",
+        "ecommerce"
+    ],
+    "require": {
+        "php": ">=8.1",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-config": "*",
+        "magento/module-store": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Solutioo\\Base\\": ""
+        }
+    }
+}

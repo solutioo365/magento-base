@@ -1,0 +1,86 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="solutioo-apps-info">
+    <p class="solutioo-apps-info__intro">
+        <?= $escaper->escapeHtml(__(
+            'Solutioo entwickelt zertifizierte Erweiterungen für Microsoft Dynamics 365 Business Central sowie Module für Magento und Shopware – vom Shop bis zum Versand.'
+        )) ?>
+    </p>
+
+    <div class="solutioo-apps-info__grid">
+        <section class="solutioo-apps-info__card">
+            <h3><?= $escaper->escapeHtml(__('Magento Open Source')) ?></h3>
+            <ul>
+                <li>
+                    <strong><?= $escaper->escapeHtml(__('Solutioo Base')) ?></strong>
+                    — <?= $escaper->escapeHtml(__('gemeinsames Admin-Menü, ACL und Helfer für alle Solutioo-Module.')) ?>
+                </li>
+                <li>
+                    <strong><?= $escaper->escapeHtml(__('EU Gewährleistung / GARAN')) ?></strong>
+                    — <?= $escaper->escapeHtml(__('harmonisiertes EU-Gewährleistungslabel und optionale Haltbarkeitsgarantie (GARAN), Luma & Hyvä.')) ?>
+                </li>
+            </ul>
+            <p class="solutioo-apps-info__links">
+                <a href="https://github.com/solutioo365" target="_blank" rel="noopener noreferrer">GitHub</a>
+                ·
+                <a href="https://www.solutioo.de/packages/" target="_blank" rel="noopener noreferrer">Composer-Pakete</a>
+                ·
+                <a href="https://www.solutioo.de/magento2/" target="_blank" rel="noopener noreferrer"><?= $escaper->escapeHtml(__('Mehr zu Magento')) ?></a>
+            </p>
+        </section>
+
+        <section class="solutioo-apps-info__card">
+            <h3><?= $escaper->escapeHtml(__('Shop ⇄ Business Central')) ?></h3>
+            <ul>
+                <li><?= $escaper->escapeHtml(__('Shopware 6 API Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('Magento 2 API Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('WooCommerce Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('TikTok Shop Connector')) ?></li>
+            </ul>
+            <p class="solutioo-apps-info__links">
+                <a href="https://www.solutioo.de/shop-business-central/" target="_blank" rel="noopener noreferrer"><?= $escaper->escapeHtml(__('Shop-Connectoren')) ?></a>
+            </p>
+        </section>
+
+        <section class="solutioo-apps-info__card">
+            <h3><?= $escaper->escapeHtml(__('Versand aus Business Central')) ?></h3>
+            <ul>
+                <li><?= $escaper->escapeHtml(__('DPD Connector (Gold-zertifiziert)')) ?></li>
+                <li><?= $escaper->escapeHtml(__('DHL Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('DHL Express Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('GLS Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('QR Picking List')) ?></li>
+            </ul>
+            <p class="solutioo-apps-info__links">
+                <a href="https://www.solutioo.de/versand-apps/" target="_blank" rel="noopener noreferrer"><?= $escaper->escapeHtml(__('Versand-Apps')) ?></a>
+            </p>
+        </section>
+
+        <section class="solutioo-apps-info__card">
+            <h3><?= $escaper->escapeHtml(__('Weitere Business-Central-Apps')) ?></h3>
+            <ul>
+                <li><?= $escaper->escapeHtml(__('Universal Import (Excel / XML / CSV)')) ?></li>
+                <li><?= $escaper->escapeHtml(__('DATANORM Item Import')) ?></li>
+                <li><?= $escaper->escapeHtml(__('inoxision ARCHIVE Connector')) ?></li>
+                <li><?= $escaper->escapeHtml(__('Mollie- & VR-Pay-Integrationen')) ?></li>
+                <li><?= $escaper->escapeHtml(__('ERP-Migration nach Business Central')) ?></li>
+            </ul>
+            <p class="solutioo-apps-info__links">
+                <a href="https://www.solutioo.de/business-central-apps/" target="_blank" rel="noopener noreferrer"><?= $escaper->escapeHtml(__('Alle BC-Apps')) ?></a>
+                ·
+                <a href="https://appsource.microsoft.com/de-de/marketplace/apps?search=solutioo" target="_blank" rel="noopener noreferrer">Microsoft AppSource</a>
+            </p>
+        </section>
+    </div>
+
+    <p class="solutioo-apps-info__footer">
+        <?= $escaper->escapeHtml(__('Fragen oder Projektanfrage:')) ?>
+        <a href="mailto:info@solutioo.de">info@solutioo.de</a>
+        ·
+        <a href="https://www.solutioo.de" target="_blank" rel="noopener noreferrer">www.solutioo.de</a>
+        ·
+        <?= $escaper->escapeHtml(__('Tel.')) ?> +49 (0) 9274 947 643
+    </p>
+</div>

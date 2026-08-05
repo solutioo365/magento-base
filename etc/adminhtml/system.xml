@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="solutioo" translate="label" sortOrder="400">
+            <label>Solutioo</label>
+        </tab>
+        <section id="solutioo_base" translate="label" sortOrder="10"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Base</label>
+            <tab>solutioo</tab>
+            <resource>Solutioo_Base::config</resource>
+
+            <group id="apps_info" translate="label" sortOrder="5"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Unsere Apps &amp; Lösungen</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>App-Infos in dieser Ansicht anzeigen</label>
+                    <comment>Blendet die Übersicht zu Solutioo-Apps unter dieser Einstellung ein oder aus.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="content" translate="label" type="label" sortOrder="20"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label> </label>
+                    <frontend_model>Solutioo\Base\Block\Adminhtml\System\AppsInfo</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="general" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Allgemein</label>
+                <field id="usage_stats" translate="label comment" type="select"
+                       sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Anonyme Nutzungsrückmeldung</label>
+                    <comment><![CDATA[<p>Hilft uns zu erkennen, welche Magento-Versionen und Module im Einsatz sind – z.&nbsp;B. für Support und Kompatibilität.</p>
+<p><strong>Übertragen wird nur:</strong> Shop-Hostname, Modulversion, Magento-Version/Edition.<br/>
+<strong>Nicht übertragen:</strong> Kundendaten, Bestellungen, Produkte, Passwörter oder andere Shop-Inhalte.</p>
+<p>Technisch wird im Admin einmalig ein kleines Icon von www.solutioo.de geladen. Die Einstellung können Sie jederzeit deaktivieren.</p>]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

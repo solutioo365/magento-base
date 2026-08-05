@@ -1,0 +1,88 @@
+
+
+.admin__menu .item-solutioo.level-0 > a,
+.admin__menu .item-solutioo-base-solutioo.level-0 > a,
+.admin__menu li.item-solutioo.level-0 > a {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.admin__menu .item-solutioo.level-0 > a::before,
+.admin__menu .item-solutioo-base-solutioo.level-0 > a::before,
+.admin__menu li.item-solutioo.level-0 > a::before {
+    content: '' !important;
+    display: block !important;
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    background-image: url('../images/solutioo-logo.svg') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    
+    filter: grayscale(100%) brightness(0.7) !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 0 !important;
+}
+
+.admin__menu .item-solutioo.level-0:hover > a::before,
+.admin__menu .item-solutioo-base-solutioo.level-0:hover > a::before,
+.admin__menu li.item-solutioo.level-0:hover > a::before {
+    filter: brightness(0) invert(1) !important;
+}
+
+.admin__menu .item-solutioo.level-0._show > a::before,
+.admin__menu .item-solutioo.level-0._current > a::before,
+.admin__menu .item-solutioo-base-solutioo.level-0._show > a::before,
+.admin__menu .item-solutioo-base-solutioo.level-0._current > a::before {
+    filter: brightness(0) invert(1) !important;
+}
+
+.admin__menu .item-aiindex.level-1 > a,
+.admin__menu .submenu .item-aiindex > a,
+.admin__menu li.item-aiindex > a {
+    color: #a79d95 !important;
+    display: block !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.7rem !important;
+    padding: 1.25rem 1.5rem !important;
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: none !important;
+}
+
+.admin__menu .item-aiindex.level-1 > a:hover,
+.admin__menu .submenu .item-aiindex > a:hover,
+.admin__menu li.item-aiindex > a:hover {
+    background: transparent !important;
+    color: #a79d95 !important;
+}
+
+.admin__menu .item-aiindex > a::before,
+.admin__menu li.item-aiindex > a::before {
+    content: none !important;
+    display: none !important;
+}
+
+.admin__menu .item-overview > a::before,
+.admin__menu .item-generate > a::before,
+.admin__menu .item-config > a::before,
+.admin__menu ul.admin__menu-submenu li[class*="item-solutioo"] > a::before,
+.admin__menu .submenu [class*="item-solutioo"] > a::before,
+.admin__menu li.level-2[class*="item-solutioo"] > a::before {
+    content: '' !important;
+    display: none !important;
+    font-size: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.admin__menu ul.admin__menu-submenu li[class*="item-solutioo"] > a,
+.admin__menu .admin__menu-submenu [class*="item-solutioo"] > a {
+    padding-left: 20px !important;
+}

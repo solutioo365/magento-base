@@ -1,0 +1,79 @@
+.solutioo-apps-info-cell {
+    padding: 0.5rem 1rem 1rem !important;
+}
+
+.solutioo-apps-info {
+    max-width: 1100px;
+    margin: 0.25rem 0 0.5rem;
+    padding: 1rem 1.15rem 1.1rem;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #f8fafc 0%, #fff 55%);
+    color: #1f2937;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.solutioo-apps-info__intro {
+    margin: 0 0 0.9rem;
+    color: #374151;
+}
+
+.solutioo-apps-info__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.solutioo-apps-info__card {
+    margin: 0;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.solutioo-apps-info__card h3 {
+    margin: 0 0 0.55rem;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f3d5c;
+}
+
+.solutioo-apps-info__card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.solutioo-apps-info__card li {
+    margin: 0.25rem 0;
+}
+
+.solutioo-apps-info__links {
+    margin: 0.65rem 0 0;
+}
+
+.solutioo-apps-info__links a,
+.solutioo-apps-info__footer a {
+    color: #00446a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.solutioo-apps-info__links a:hover,
+.solutioo-apps-info__footer a:hover {
+    text-decoration: underline;
+}
+
+.solutioo-apps-info__footer {
+    margin: 0.95rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+    color: #4b5563;
+}
+
+@media (max-width: 960px) {
+    .solutioo-apps-info__grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Solutioo_Base::css/menu.css"/>
+        <css src="Solutioo_Base::css/apps-info.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="solutioo.base.menu.script"
+                   template="Solutioo_Base::menu-logo.phtml"
+                   before="-"/>
+            <block class="Solutioo\Base\Block\Adminhtml\UsageBeacon"
+                   name="solutioo.base.usage.beacon"
+                   template="Solutioo_Base::usage-beacon.phtml"
+                   after="-"/>
+        </referenceContainer>
+    </body>
+</page>
