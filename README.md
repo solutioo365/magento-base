@@ -22,7 +22,7 @@ Works with **Magento Open Source** and **Adobe Commerce**, including shops runni
 ### Composer (recommended)
 
 ```bash
-composer config repositories.solutioo composer https://www.solutioo.de/packages/
+composer config repositories.solutioo composer https://www.solutioo.de/wp-content/packages/
 composer require solutioo/module-base
 bin/magento module:enable Solutioo_Base
 bin/magento setup:upgrade
