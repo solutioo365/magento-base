@@ -6,7 +6,8 @@
         <css src="Solutioo_Base::css/apps-info.css"/>
     </head>
     <body>
-        <referenceContainer name="content">
+        <!-- The 2FA login layout uses "content" as a block, not a container. -->
+        <referenceContainer name="js">
             <block class="Magento\Framework\View\Element\Template"
                    name="solutioo.base.menu.script"
                    template="Solutioo_Base::menu-logo.phtml"
