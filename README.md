@@ -89,6 +89,16 @@ Config providers can extend `Solutioo\Base\Model\ConfigProviderAbstract`.
 | Hyvä Theme | N/A (no frontend output) |
 | Magento 2.4.6 – 2.4.8 | Tested |
 
+## Layout regression check
+
+Run this check against an existing Magento installation that includes `Magento_TwoFactorAuth`:
+
+```bash
+php tests/adminhtml-layout.php /path/to/magento
+```
+
+It uses Magento's layout readers to check 2FA form classes, templates and UI component arguments, and the Base blocks on normal Admin pages. It also validates the Base layout against Magento's XML schema. The 2FA module can be disabled; the check does not change module configuration or perform a login.
+
 ## Support
 
 - Website: [www.solutioo.de](https://www.solutioo.de)
