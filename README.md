@@ -99,6 +99,14 @@ php tests/adminhtml-layout.php /path/to/magento
 
 It uses Magento's layout readers to check 2FA form classes, templates and UI component arguments, and the Base blocks on normal Admin pages. It also validates the Base layout against Magento's XML schema. The 2FA module can be disabled; the check does not change module configuration or perform a login.
 
+Run the Admin CSP check against Magento with `Magento_Csp` and `Solutioo_Base` enabled:
+
+```bash
+php tests/adminhtml-csp.php /path/to/magento
+```
+
+It validates and reads the CSP whitelist using Magento, checks the merged image policy, and renders the template with its setting enabled and disabled. It does not make an external request or change saved configuration.
+
 ## Support
 
 - Website: [www.solutioo.de](https://www.solutioo.de)
