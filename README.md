@@ -55,6 +55,8 @@ bin/magento cache:flush
 | App-Infos anzeigen | Optional. Zeigt im Admin eine Übersicht zu Solutioo Magento-Modulen, Shop-Connectoren, Versand- und Business-Central-Apps. |
 | Anonyme Nutzungsrückmeldung | Optional. Hilft bei Support/Kompatibilität. Übertragen: Hostname, Modul- und Magento-Version. Keine Kunden- oder Bestelldaten. Jederzeit deaktivierbar. |
 
+Die Nutzungsrückmeldung lädt ein Bild von `https://www.solutioo.de/module-ping/`, um installierte Solutioo-Module zu erfassen. Die Bildquelle ist für `img-src` freigegeben; die vollständige Admin-URL wird dank `referrerpolicy="no-referrer"` nicht als Referer übertragen. Menülogo und Beacon verwenden ausschließlich externes CSS.
+
 ## Use in your own Solutioo module
 
 `etc/module.xml`:
@@ -98,6 +100,14 @@ php tests/adminhtml-layout.php /path/to/magento
 ```
 
 It uses Magento's layout readers to check 2FA form classes, templates and UI component arguments, and the Base blocks on normal Admin pages. It also validates the Base layout against Magento's XML schema. The 2FA module can be disabled; the check does not change module configuration or perform a login.
+
+Run the CSP and installation tracking check against Magento with `Magento_Csp` and `Solutioo_Base` enabled:
+
+```bash
+php tests/adminhtml-csp.php /path/to/magento
+```
+
+It validates and reads the CSP whitelist using Magento, checks the merged image policy, and renders the beacon with tracking enabled and disabled. It does not make a tracking request or change saved configuration.
 
 ## Support
 
