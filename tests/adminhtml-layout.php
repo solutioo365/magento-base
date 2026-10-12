@@ -102,7 +102,11 @@ foreach (['admin-1column.xml', 'admin-empty.xml'] as $pageLayout) {
     $structure = interpretLayout($objectManager, [$theme . $pageLayout, $backend . 'default.xml', $baseLayout]);
     $data = $structure->getStructureElementData('content', []);
     check(!isset($data['attributes']['class']), $pageLayout . ' keeps content as a container');
-    foreach (['solutioo.base.menu.script', 'solutioo.base.usage.beacon'] as $name) {
+    check(
+        $structure->getStructureElement('solutioo.base.menu.script') === null,
+        $pageLayout . ' does not schedule the inline menu script'
+    );
+    foreach (['solutioo.base.usage.beacon'] as $name) {
         $element = $structure->getStructureElement($name);
         $parentIndex = \Magento\Framework\View\Layout\ScheduledStructure\Helper::SCHEDULED_STRUCTURE_INDEX_PARENT_NAME;
         check(($element[$parentIndex] ?? '') === 'js', $pageLayout . ' attaches ' . $name . ' to js');
@@ -110,6 +114,22 @@ foreach (['admin-1column.xml', 'admin-empty.xml'] as $pageLayout) {
         check(!empty($block['attributes']['class']) && !empty($block['attributes']['template']), $name . ' retains its class and template');
     }
 }
+
+$structure = interpretLayout($objectManager, [
+    $theme . 'admin-1column.xml',
+    $backend . 'default.xml',
+    $baseLayout,
+    $root . '/vendor/magento/module-sales/view/adminhtml/layout/sales_order_create_index.xml',
+]);
+check(
+    $structure->getStructureElement('solutioo.base.menu.script') === null,
+    'Admin order creation does not schedule the inline menu script'
+);
+$beacon = $structure->getStructureElementData('solutioo.base.usage.beacon', []);
+check(
+    ($beacon['attributes']['template'] ?? '') === 'Solutioo_Base::usage-beacon.phtml',
+    'Admin order creation retains the usage beacon'
+);
 
 echo 'Failures: ' . $failures . PHP_EOL;
 exit($failures === 0 ? 0 : 1);
