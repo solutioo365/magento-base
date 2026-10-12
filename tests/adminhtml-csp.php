@@ -93,7 +93,7 @@ foreach ($modulePolicies as $policy) {
 }
 check(
     in_array('https://www.solutioo.de', $imagePolicy->getHostSources(), true),
-    'Magento merges the HTTPS tracking image source into img-src'
+    'Magento merges the HTTPS image source into img-src'
 );
 
 $engine = $objectManager->get(\Magento\Framework\View\TemplateEngine\Php::class);
@@ -105,34 +105,34 @@ foreach ([true, false] as $enabled) {
     $block = $objectManager->create(\Solutioo\Base\Block\Adminhtml\UsageBeacon::class, ['config' => $config]);
     $html = $engine->render($block, $templateFile);
     if (!$enabled) {
-        check(trim($html) === '', 'Disabled installation tracking renders no image or request URL');
+        check(trim($html) === '', 'Disabled setting renders no image or request URL');
         continue;
     }
 
     $document = new DOMDocument();
     $document->loadHTML($html);
     $images = $document->getElementsByTagName('img');
-    check($images->length === 1, 'Enabled installation tracking renders exactly one image');
+    check($images->length === 1, 'Enabled setting renders exactly one image');
     $image = $images->item(0);
     if (!$image instanceof DOMElement) {
         throw new RuntimeException('The enabled beacon did not render an image.');
     }
-    check($image->getAttribute('referrerpolicy') === 'no-referrer', 'Tracking image suppresses the Admin Referer');
-    check(!$image->hasAttribute('style'), 'Tracking image does not need an inline style');
-    check($document->getElementsByTagName('script')->length === 0, 'Tracking image does not need an inline script');
-    check($image->getAttribute('src') === $block->getBeaconUrl(), 'Template preserves and escapes the tracking URL');
+    check($image->getAttribute('referrerpolicy') === 'no-referrer', 'Image suppresses the Admin Referer');
+    check(!$image->hasAttribute('style'), 'Image does not need an inline style');
+    check($document->getElementsByTagName('script')->length === 0, 'Image does not need an inline script');
+    check($image->getAttribute('src') === $block->getBeaconUrl(), 'Template preserves and escapes the image URL');
     $url = parse_url($image->getAttribute('src'));
     check(
         ($url['scheme'] ?? '') === 'https' && ($url['host'] ?? '') === 'www.solutioo.de'
             && ($url['path'] ?? '') === '/module-ping/',
-        'Installation tracking keeps the original HTTPS endpoint'
+        'Image keeps the original HTTPS endpoint'
     );
     parse_str($url['query'] ?? '', $parameters);
     $keys = array_keys($parameters);
     sort($keys);
     check(
         $keys === ['e', 'h', 'm', 'mods', 'mv', 'v'] && $parameters['m'] === 'base',
-        'Tracking keeps its hostname, module list, versions and edition parameters'
+        'Image URL retains its existing parameters'
     );
 }
 

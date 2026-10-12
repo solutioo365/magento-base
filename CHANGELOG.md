@@ -2,9 +2,9 @@
 
 ## Unreleased
 
-- Allow the installation tracking image through CSP without sending Admin URLs in the Referer header.
+- Allow external images through CSP without sending Admin URLs in the Referer header.
 - Render the Admin menu logo through external CSS only, scoped to the Solutioo menu ID.
-- Move the usage beacon's inline styling to external CSS.
+- Move inline image styling to external CSS.
 
 ## 1.0.0 – 2026-08-05
 
